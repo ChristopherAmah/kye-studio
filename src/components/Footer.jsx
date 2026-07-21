@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="min-h-screen bg-[#F8F8F6] text-black flex flex-col px-5 md:px-10 pt-6 pb-10">
+    <footer className="bg-[#F8F8F6] text-black flex flex-col px-5 sm:px-6 md:px-10 pt-8 md:pt-10 pb-8 md:pb-10 min-h-[70vh] md:min-h-screen">
 
       {/* Huge Title */}
       <div className="overflow-hidden">
@@ -12,12 +12,15 @@ export default function Footer() {
             font-black
             leading-none
             tracking-[-0.05em]
-            text-[20vw]
+            text-[22vw]
+            sm:text-[18vw]
             md:text-[15vw]
             lg:text-[13vw]
             text-transparent
             stroke-text
-            whitespace-nowrap
+            whitespace-normal
+            md:whitespace-nowrap
+            break-words
             select-none
           "
         >
@@ -25,33 +28,36 @@ export default function Footer() {
         </h1>
       </div>
 
-      {/* Empty Space */}
-      <div className="flex-1" />
+      {/* Space */}
+      <div className="flex-1 py-10 md:py-16" />
 
       {/* Statement */}
       <a
         href="#"
         className="
-          text-2xl
+          text-lg
+          sm:text-2xl
           md:text-4xl
           underline
           underline-offset-4
           decoration-[1px]
           w-fit
-          mb-10
+          mb-8
+          md:mb-10
+          leading-snug
         "
       >
         Building digital experiences people remember.
       </a>
 
       {/* Divider */}
-      <div className="border-t border-black mb-10" />
+      <div className="border-t border-black mb-8 md:mb-10" />
 
       {/* Bottom */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
 
         {/* Left */}
-        <div className="grid grid-cols-2 gap-y-5 text-2xl md:text-4xl">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-8 text-lg sm:text-2xl md:text-4xl">
 
           <div className="flex flex-col gap-3">
             <a href="#" className="underline">Projects</a>
@@ -70,11 +76,28 @@ export default function Footer() {
         </div>
 
         {/* Newsletter */}
-        <div className="flex justify-end">
+        <div className="w-full lg:flex lg:justify-end">
 
           <div className="w-full max-w-3xl">
 
-            <form className="border border-black rounded-full flex items-center justify-between px-8 py-5">
+            <form
+              className="
+                border
+                border-black
+                rounded-3xl
+                md:rounded-full
+                flex
+                flex-col
+                sm:flex-row
+                items-start
+                sm:items-center
+                gap-4
+                px-5
+                sm:px-6
+                md:px-8
+                py-5
+              "
+            >
 
               <input
                 type="email"
@@ -82,10 +105,12 @@ export default function Footer() {
                 className="
                   bg-transparent
                   outline-none
-                  text-2xl
-                  md:text-4xl
-                  placeholder:text-black
+                  w-full
                   flex-1
+                  text-lg
+                  sm:text-xl
+                  md:text-3xl
+                  placeholder:text-black
                 "
               />
 
@@ -93,10 +118,12 @@ export default function Footer() {
                 type="submit"
                 className="
                   uppercase
-                  tracking-[0.3em]
+                  tracking-[0.25em]
                   underline
-                  text-sm
-                  md:text-lg
+                  text-xs
+                  sm:text-sm
+                  md:text-base
+                  whitespace-nowrap
                 "
               >
                 Submit
