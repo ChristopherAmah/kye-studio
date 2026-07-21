@@ -1,0 +1,36 @@
+
+.footer{
+min-height:100dvh;background:#f6f4ef;color:#111;padding:2rem 2rem 3rem;
+display:flex;flex-direction:column;opacity:0;transform:translateY(60px);
+transition:all .9s ease}
+.footer.show{opacity:1;transform:none}
+.footer-title{-webkit-text-stroke:2px #111;color:transparent;font-weight:900;
+font-size:clamp(5rem,15vw,14rem);line-height:.9;
+white-space:nowrap;transition:transform .2s}
+.footer-spacer{flex:1}
+.footer-tagline{font-size:clamp(1.8rem,3vw,3.5rem);color:#111;
+text-decoration:underline;margin:2rem 0}
+.footer-divider{border-top:1px solid #111;margin-bottom:2rem}
+.footer-bottom{display:grid;grid-template-columns:1fr 1fr;gap:3rem}
+.footer-links{display:grid;grid-template-columns:1fr 1fr;gap:2rem}
+.footer-links a{display:block;font-size:clamp(1.1rem,2vw,2rem);margin:.6rem 0;
+text-decoration:none;position:relative;color:#111}
+.footer-links a:after{content:"";position:absolute;left:0;bottom:-3px;width:0;
+height:1px;background:#111;transition:.35s}
+.footer-links a:hover:after{width:100%}
+.newsletter{display:flex;flex-direction:column;align-items:flex-end;gap:2rem}
+.badge{width:120px;height:120px;border:1px solid #111;border-radius:999px;
+display:grid;place-items:center;animation:spin 16s linear infinite}
+.newsletter-form{width:100%;display:flex;border:1px solid #111;border-radius:999px;
+padding:.8rem 1rem}
+.newsletter-form input{flex:1;border:none;background:transparent;
+outline:none;font-size:1.2rem}
+.newsletter-form:focus-within{transform:scale(1.02)}
+.newsletter-form button{border:none;background:none;font-weight:700;
+cursor:pointer;transition:transform .2s}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:768px){
+.footer-bottom{grid-template-columns:1fr}
+.footer-links{grid-template-columns:1fr 1fr}
+.newsletter{align-items:stretch}
+}

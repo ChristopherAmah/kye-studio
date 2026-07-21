@@ -1,0 +1,135 @@
+@import "tailwindcss";
+.glitch-container {
+    position: relative;
+    width: 100%;
+}
+
+.glitch {
+    position: relative;
+    display: block;
+    width: 100%;
+    animation: glitchMain 5s infinite;
+}
+
+/* Red Layer */
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  inset: 0;
+}
+
+/* Cyan */
+.glitch::before {
+  color: #00eaff;
+  z-index: -1;
+  opacity: 0;
+  animation: glitchBlue 5s infinite;
+}
+
+/* Red */
+.glitch::after {
+  color: #ff2d55;
+  z-index: -2;
+  opacity: 0;
+  animation: glitchRed 5s infinite;
+}
+
+/* Main Text */
+@keyframes glitchMain {
+
+  0%, 91%, 100% {
+    transform: translate(0);
+    filter: none;
+  }
+
+  92% {
+    transform: translate(-4px, 2px);
+  }
+
+  93% {
+    transform: translate(5px, -2px);
+  }
+
+  94% {
+    transform: translate(-3px, 1px);
+  }
+
+  95% {
+    transform: translate(2px, -1px);
+  }
+
+  96% {
+    transform: translate(0);
+  }
+}
+
+/* Cyan Layer */
+
+@keyframes glitchBlue {
+
+  0%,91%,100% {
+    opacity:0;
+    transform:translate(0);
+    clip-path:none;
+  }
+
+  92%{
+    opacity:.7;
+    transform:translate(-8px,0);
+    clip-path: inset(10% 0 60% 0);
+  }
+
+  93%{
+    opacity:.8;
+    transform:translate(5px,-2px);
+    clip-path: inset(55% 0 15% 0);
+  }
+
+  94%{
+    opacity:.6;
+    transform:translate(-3px,2px);
+    clip-path: inset(30% 0 35% 0);
+  }
+
+  95%,100%{
+    opacity:0;
+  }
+}
+
+/* Red Layer */
+
+@keyframes glitchRed {
+
+  0%,91%,100%{
+    opacity:0;
+    transform:translate(0);
+    clip-path:none;
+  }
+
+  92%{
+    opacity:.6;
+    transform:translate(8px,0);
+    clip-path: inset(60% 0 5% 0);
+  }
+
+  93%{
+    opacity:.7;
+    transform:translate(-5px,1px);
+    clip-path: inset(20% 0 50% 0);
+  }
+
+  94%{
+    opacity:.5;
+    transform:translate(4px,-2px);
+    clip-path: inset(40% 0 25% 0);
+  }
+
+  95%,100%{
+    opacity:0;
+  }
+}
+
+.stroke-text{
+    -webkit-text-stroke:1.5px black;
+}
