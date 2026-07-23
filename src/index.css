@@ -11,6 +11,15 @@
     animation: glitchMain 5s infinite;
 }
 
+.glass-text {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke: clamp(1.2px, 0.16vw, 2.4px) rgba(255, 255, 255, 0.9);
+  filter:
+    drop-shadow(0 1px 0 rgba(255, 255, 255, 0.22))
+    drop-shadow(0 18px 38px rgba(0, 0, 0, 0.5));
+}
+
 /* Red Layer */
 .glitch::before,
 .glitch::after {
@@ -21,7 +30,7 @@
 
 /* Cyan */
 .glitch::before {
-  color: #00eaff;
+  color: transparent;
   z-index: -1;
   opacity: 0;
   animation: glitchBlue 5s infinite;
@@ -29,7 +38,7 @@
 
 /* Red */
 .glitch::after {
-  color: #ff2d55;
+  color: transparent;
   z-index: -2;
   opacity: 0;
   animation: glitchRed 5s infinite;
@@ -132,4 +141,62 @@
 
 .stroke-text{
     -webkit-text-stroke:1.5px black;
+}
+
+.kye-loader-ring {
+  position: absolute;
+  display: flex;
+  width: 340px;
+  height: 340px;
+  align-items: center;
+  justify-content: center;
+  animation:
+    kyeLoaderRotate 10s linear infinite,
+    kyeLoaderBreath 3s ease-in-out infinite;
+}
+
+.kye-loader-mark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  color: #111;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  letter-spacing: -0.08em;
+  line-height: 0.85;
+  opacity: var(--opacity);
+  white-space: nowrap;
+  transform: translate(-50%, -50%) rotate(var(--angle)) translateX(130px) rotate(var(--counter-angle));
+  animation: kyeLoaderPulse 2.8s ease-in-out infinite;
+  animation-delay: var(--delay);
+}
+
+@keyframes kyeLoaderRotate {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes kyeLoaderBreath {
+  0%, 100% {
+    scale: 1;
+  }
+
+  50% {
+    scale: 1.08;
+  }
+}
+
+@keyframes kyeLoaderPulse {
+  0%, 100% {
+    filter: blur(2px);
+    opacity: calc(var(--opacity) * 0.45);
+    scale: 0.9;
+  }
+
+  50% {
+    filter: blur(0);
+    opacity: var(--opacity);
+    scale: 1.12;
+  }
 }
