@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 const BACKGROUND_IMAGES = Object.entries(
-  import.meta.glob("../assets/kyeart/*.JPG", {
+  import.meta.glob("../assets/heroart/*.JPG", {
     eager: true,
     import: "default",
     query: "?url",
