@@ -59,6 +59,7 @@ export default function HeroSection() {
               md:text-[18vw]
               lg:text-[16vw]
               xl:text-[15vw]
+              mt-10
             "
             data-text="KYE STUDIO"
           >
