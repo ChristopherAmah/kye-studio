@@ -3,6 +3,9 @@ import Hero from '../components/Hero'
 import Navbar from '../components/Navbar'
 import Intro from '../components/Intro'
 import Notanartist from '../components/Notanartist'
+import Notforsale from '../components/Notforsale'
+
+
 const Home = () => {
   return (
     <div className='bg-black'>
@@ -10,6 +13,7 @@ const Home = () => {
      <Navbar />
      <Intro />
      <Notanartist />
+     <Notforsale />
     </div>
   )
 }
