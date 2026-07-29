@@ -10,7 +10,7 @@ import not2 from "../assets/heroart/DSC_0562.JPG";
 import not3 from "../assets/heroart/DSC_0561.JPG";
 import not4 from "../assets/heroart/DSC_0576.JPG";
 
-const INSTAGRAM_URL = "https://instagram.com/yourusername";
+const INSTAGRAM_URL = "https://www.instagram.com/cashflowsteadysniping?igsh=MTg1b2R2bmR6ZTYwcw==";
 const WHATSAPP_URL = "https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20buying%20an%20art%20piece.";
 
 const projects = [

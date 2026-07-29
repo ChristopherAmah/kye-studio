@@ -81,7 +81,7 @@ export default function Footer() {
             Contact
           </h3>
           <div className="flex flex-col gap-3 md:gap-5">
-            <a href="#" className="text-base sm:text-xl md:text-2xl font-light transition-transform duration-300 hover:translate-x-2">
+            <a href="https://www.instagram.com/cashflowsteadysniping?igsh=MTg1b2R2bmR6ZTYwcw==" className="text-base sm:text-xl md:text-2xl font-light transition-transform duration-300 hover:translate-x-2">
               Instagram
             </a>
             <a href="#" className="text-base sm:text-xl md:text-2xl font-light transition-transform duration-300 hover:translate-x-2">
