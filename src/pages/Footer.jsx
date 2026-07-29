@@ -22,7 +22,7 @@ export default function Footer() {
       className={`bg-[#f6f4ef] text-black overflow-hidden px-5 sm:px-6 md:px-10 lg:px-14 pt-16 md:pt-24 pb-6 transition-all duration-700 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
       }`}
-    >
+    id="footer">
       {/* Tagline / Call to Action */}
       {/* <a
         href="#contact"
@@ -60,13 +60,13 @@ export default function Footer() {
             Projects
           </h3>
           <div className="space-y-4 md:space-y-6">
-            <a href="#" className="flex items-center gap-3 md:gap-6 group">
+            <a href="#not-an-artist" className="flex items-center gap-3 md:gap-6 group">
               <span className="text-neutral-400 text-xs sm:text-sm md:text-lg w-5 md:w-8">01</span>
               <span className="text-base sm:text-xl md:text-2xl font-light transition-transform duration-300 group-hover:translate-x-2">
                 NOT AN ARTIST
               </span>
             </a>
-            <a href="#" className="flex items-center gap-3 md:gap-6 group">
+            <a href="#not-for-sale" className="flex items-center gap-3 md:gap-6 group">
               <span className="text-neutral-400 text-xs sm:text-sm md:text-lg w-5 md:w-8">02</span>
               <span className="text-base sm:text-xl md:text-2xl font-light transition-transform duration-300 group-hover:translate-x-2">
                 NOT FOR SALE

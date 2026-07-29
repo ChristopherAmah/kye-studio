@@ -133,14 +133,14 @@ function ParallaxProjectItem({ project, onOpenModal }) {
       <div className="max-w-6xl mx-auto w-full">
         <div
           onClick={() => onOpenModal(project)}
-          className="relative h-[280px] sm:h-[380px] md:h-[500px] w-full overflow-hidden rounded-lg cursor-pointer group"
+          className="relative h-70 sm:h-95 md:h-125 w-full overflow-hidden rounded-lg cursor-pointer group"
         >
           <motion.img
             src={project.image}
             alt={project.title}
             loading="lazy"
             style={{ y }}
-            className="absolute inset-0 w-full h-[125%] object-cover -top-[12.5%] transition-transform duration-500 group-hover:scale-105"
+            className="absolute inset-0 w-full h-[125%] object-cover top-[-12.5%] transition-transform duration-500 group-hover:scale-105"
           />
 
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
@@ -237,7 +237,7 @@ export default function ShowcaseSectionNotForSale() {
   const [selectedProject, setSelectedProject] = useState(null);
 
   return (
-    <section className="relative bg-black select-none">
+    <section className="relative bg-black select-none" id="not-for-sale">
       <div className="flex flex-col md:flex-row">
         {/* RIGHT SIDEBAR ON DESKTOP / TOP BANNER ON MOBILE */}
         <div className="sticky top-0 h-12 md:h-screen w-full md:w-24 lg:w-28 flex items-center justify-center border-b md:border-b-0 md:border-l border-white/10 bg-black z-30 shrink-0 md:order-2">

@@ -11,7 +11,7 @@ export default function Footer() {
             uppercase
             font-black
             leading-none
-            tracking-[-0.05em]
+            tracking-tighter
             text-[22vw]
             sm:text-[18vw]
             md:text-[15vw]
@@ -20,7 +20,7 @@ export default function Footer() {
             stroke-text
             whitespace-normal
             md:whitespace-nowrap
-            break-words
+            wrap-break-word
             select-none
           "
         >
@@ -40,7 +40,7 @@ export default function Footer() {
           md:text-4xl
           underline
           underline-offset-4
-          decoration-[1px]
+          decoration-1
           w-fit
           mb-8
           md:mb-10

@@ -1,5 +1,6 @@
 import { Moon } from "lucide-react";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function BottomNavbar() {
   const [showLogo, setShowLogo] = useState(false);
@@ -61,15 +62,19 @@ export default function BottomNavbar() {
                   : "translate-x-0"
               }`}
           >
-            <a href="#work" className="hover:opacity-60 transition">
-              WORK
-            </a>
+            <Link to="/home" className="hover:opacity-60 transition">
+              HOME
+            </Link>
 
-            <a href="#about" className="hover:opacity-60 transition">
+            <Link to="/works" className="hover:opacity-60 transition">
+              WORKS
+            </Link>
+
+            <Link to="/about" className="hover:opacity-60 transition">
               ABOUT
-            </a>
+            </Link>
 
-            <a href="#contact" className="hover:opacity-60 transition">
+            <a href="#footer" className="hover:opacity-60 transition">
               CONTACT
             </a>
           </div>

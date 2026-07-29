@@ -1,4 +1,8 @@
 @import "tailwindcss";
+html {
+  scroll-behavior: smooth;
+}
+
 .glitch-container {
     position: relative;
     width: 100%;

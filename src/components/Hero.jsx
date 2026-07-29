@@ -22,7 +22,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen h-[100dvh] overflow-hidden bg-black">
+    <section className="relative min-h-screen h-dvh overflow-hidden bg-black">
       {/* Background Images */}
       <div className="absolute inset-0">
         {BACKGROUND_IMAGES.map((src, index) => (
@@ -30,14 +30,14 @@ export default function HeroSection() {
             key={src}
             src={src}
             alt={`Slide ${index + 1}`}
-            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-[1500ms] ease-in-out ${
+            className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1500 ease-in-out ${
               index === currentIndex ? "opacity-40" : "opacity-0"
             }`}
           />
         ))}
 
         {/* Cinematic Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/10 to-black/70" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/10 to-black/70" />
       </div>
 
       {/* Hero Title */}
