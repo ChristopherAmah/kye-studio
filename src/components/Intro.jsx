@@ -48,8 +48,8 @@ export default function IntroSection() {
             xl:text-8xl
           "
         >
-          We're a global creative studio. From the thinking to the making,
-          it all happens in-house.
+          Welcome to <span className="font-bold">KYE STUDIO</span>, where creativity meets innovation. 
+          Dive in and discover the art of the possible.
         </h1>
       </div>
 
@@ -59,8 +59,7 @@ export default function IntroSection() {
           className="
             flex
             flex-wrap
-            justify-center
-            md:justify-start
+            justify-start
 
             gap-x-6
             sm:gap-x-8
