@@ -27,7 +27,7 @@ const LoaderTextItem = ({ size, weight, opacity, index, total }) => {
         "--delay": `${index * 0.14}s`,
       }}
     >
-      KYE STUDIO
+      UNMADE
     </span>
   );
 };
@@ -47,7 +47,7 @@ const Overview = () => {
   return (
     <div className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-white">
       {/* Kye Loader */}
-      <div className="kye-loader-ring" aria-label="Loading KYE STUDIOS">
+      <div className="kye-loader-ring" aria-label="Loading UNMADES">
         {KYE_MARKS.map((mark, index) => (
           <LoaderTextItem
             key={index}

@@ -48,8 +48,9 @@ export default function IntroSection() {
             xl:text-8xl
           "
         >
-          Welcome to <span className="font-bold">KYE STUDIO</span>, where creativity meets innovation. 
-          Dive in and discover the art of the possible.
+          Welcome to <span className="font-bold">UNMADE</span>, everything starts with an idea.
+          Most ideas never become anything. <br />
+          These did.
         </h1>
       </div>
 

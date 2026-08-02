@@ -24,7 +24,7 @@ export default function Footer() {
             select-none
           "
         >
-          KYE STUDIOS
+          UNMADES
         </h1>
       </div>
 

@@ -47,7 +47,7 @@ export default function Footer() {
           "
           style={{ WebkitTextStroke: "2px #111" }}
         >
-          KYE STUDIO
+          UNMADE
         </h1>
       </div>
 
@@ -96,7 +96,7 @@ export default function Footer() {
 
       {/* Meta info bar */}
       <div className="border-t border-black/20 mt-16 md:mt-24 pt-6 flex flex-row justify-between items-center text-sm md:text-base tracking-wider text-neutral-500 mb-8">
-        <span>© {new Date().getFullYear()} KYE STUDIO</span>
+        <span>© {new Date().getFullYear()} UNMADE</span>
         <a
           href="https://christopheramahportfolio.vercel.app/"
           target="_blank"

@@ -16,7 +16,7 @@ export default function HeroSection() {
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % BACKGROUND_IMAGES.length);
-    }, 3500); // Slower transition
+    }, 3500);
 
     return () => clearInterval(interval);
   }, []);
@@ -42,29 +42,54 @@ export default function HeroSection() {
 
       {/* Hero Title */}
       <div className="absolute inset-0 z-20 flex items-start justify-center pt-6 sm:pt-8 md:pt-5 pointer-events-none select-none">
-        <div className="glitch-container w-full">
-          <h1
-            className="
-              glitch
-              glass-text
-              w-full
-              text-center
-              uppercase
-              font-black
-              leading-[0.78]
-              tracking-[-0.06em]
+        <div className="glitch-container w-full flex justify-center">
+          <div className="relative inline-block">
+            <h1
+              className="
+                glitch
+                glass-text
+                uppercase
+                font-black
+                leading-[0.78]
+                tracking-[-0.06em]
 
-              text-[24vw]
-              sm:text-[20vw]
-              md:text-[18vw]
-              lg:text-[16vw]
-              xl:text-[15vw]
-              mt-10
-            "
-            data-text="KYE STUDIO"
-          >
-            KYE STUDIO
-          </h1>
+                text-[24vw]
+                sm:text-[20vw]
+                md:text-[18vw]
+                lg:text-[16vw]
+                xl:text-[15vw]
+
+                mt-10
+              "
+              data-text="UNMADE"
+            >
+              UNMADE
+            </h1>
+
+            {/* Artist Signature */}
+            <span
+              className="
+                absolute
+
+                right-[2%]
+                top-full
+                mt-8
+
+                text-[10px]
+                sm:text-xs
+                md:text-sm
+
+                uppercase
+                tracking-[0.45em]
+                font-light
+
+                text-white/60
+                whitespace-nowrap
+              "
+            >
+              BY KYETHEKID
+            </span>
+          </div>
         </div>
       </div>
     </section>

@@ -45,7 +45,7 @@ export default function BottomNavbar() {
               : "opacity-0 -translate-x-8"
           }`}
         >
-          KYE STUDIO
+          UNMADE
         </div>
 
         {/* Navigation */}
