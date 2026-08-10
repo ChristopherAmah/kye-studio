@@ -82,14 +82,14 @@ export default function BottomNavbar({ theme, onToggleTheme }) {
         <button
           type="button"
           onClick={onToggleTheme}
-          className="absolute right-4 sm:right-6 md:right-12 inline-flex items-center gap-2 rounded-full border theme-border theme-surface px-3 py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em] theme-text shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+          className="absolute right-4 sm:right-6 md:right-12 inline-flex items-center justify-center rounded-full border theme-border theme-surface px-3 py-2 text-[10px] sm:px-3 sm:py-2 sm:text-xs font-semibold uppercase tracking-[0.22em] theme-text shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl min-w-10 sm:min-w-0"
           aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
         >
-          <span className="hidden sm:inline">
+          <span className="hidden sm:inline-flex items-center gap-2">
             {theme === "dark" ? "Light Mode" : "Dark Mode"}
           </span>
-          <span className="sm:hidden">
-            {theme === "dark" ? "Light" : "Dark"}
+          <span className="sm:hidden text-sm leading-none" aria-hidden="true">
+            {theme === "dark" ? "☀️" : "🌙"}
           </span>
         </button>
       </div>
