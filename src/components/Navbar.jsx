@@ -32,7 +32,7 @@ export default function BottomNavbar() {
 
   return (
     <nav
-      className={`fixed bottom-0 left-0 right-0 z-50 h-16 md:h-[8dvh] bg-black text-white transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] ${
+      className={`fixed bottom-0 left-0 right-0 z-50 h-16 md:h-[8dvh] theme-surface theme-text border-t theme-border transition-transform duration-500 ease-[cubic-bezier(.22,1,.36,1)] ${
         showNavbar ? "translate-y-0" : "translate-y-full"
       }`}
     >

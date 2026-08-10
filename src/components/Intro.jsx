@@ -6,8 +6,8 @@ export default function IntroSection() {
   return (
     <section
       className="
-        bg-black
-        text-white
+        theme-bg
+        theme-text
 
         flex
         flex-col
@@ -39,7 +39,7 @@ export default function IntroSection() {
             font-normal
             leading-[1.05]
             tracking-tight
-            text-neutral-100
+            theme-text
 
             text-4xl
             sm:text-5xl
@@ -76,14 +76,14 @@ export default function IntroSection() {
             sm:text-xs
             md:text-sm
 
-            text-neutral-300
+            theme-muted
           "
         >
           {categories.map((item) => (
             <li key={item}>
               <a
                 href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-                className="underline underline-offset-4 decoration-neutral-600 hover:decoration-white transition-colors duration-300"
+                className="underline underline-offset-4 decoration-current/30 hover:decoration-current transition-colors duration-300"
               >
                 {item}
               </a>

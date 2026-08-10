@@ -7,15 +7,21 @@ import {
 } from "framer-motion";
 
 // Sample image imports
-import not1 from "../assets/heroart/DSC_0508.JPG";
-import not2 from "../assets/heroart/DSC_0516.JPG";
-import not3 from "../assets/heroart/DSC_0528.JPG";
-import not4 from "../assets/heroart/DSC_0548.JPG";
+import not1 from "../assets/na1.jpeg";
+import not2 from "../assets/na2.jpeg";
+import not3 from "../assets/na3.jpeg";
+import not4 from "../assets/na4.jpeg";
+import not5 from "../assets/na5.jpeg";
+import not6 from "../assets/na6.jpeg";
+import not7 from "../assets/na7.jpeg";
+import nfs1 from "../assets/nfs1.jpeg";
+import nfs2 from "../assets/nfs2.jpeg";
+import nfs3 from "../assets/nfs3.jpeg";
 
 const INSTAGRAM_URL = "https://www.instagram.com/cashflowsteadysniping?igsh=MTg1b2R2bmR6ZTYwcw==";
 const WHATSAPP_URL = "https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20buying%20an%20art%20piece.";
 
-// All projects array with categories attached
+// Unique IDs 1 through 10
 const allProjects = [
   // --- NOT AN ARTIST CATEGORY ---
   {
@@ -46,20 +52,48 @@ const allProjects = [
     subtitle: "Exploring the boundaries of creative expression.",
     category: "NOT AN ARTIST",
   },
+  {
+    id: 5,
+    image: not5,
+    title: "THE ART",
+    subtitle: "Exploring the boundaries of creative expression.",
+    category: "NOT AN ARTIST",
+  },
+  {
+    id: 6,
+    image: not6,
+    title: "THE ART",
+    subtitle: "Exploring the boundaries of creative expression.",
+    category: "NOT AN ARTIST",
+  },
+  {
+    id: 7,
+    image: not7,
+    title: "THE ART",
+    subtitle: "Exploring the boundaries of creative expression.",
+    category: "NOT AN ARTIST",
+  },
 
   // --- NOT FOR SALE CATEGORY ---
   {
-    id: 5,
-    image: not1,
+    id: 8,
+    image: nfs1,
     title: "UNPUBLISHED SHADOWS",
     subtitle: "Archival personal collection piece 01.",
     category: "NOT FOR SALE",
   },
   {
-    id: 6,
-    image: not2,
+    id: 9,
+    image: nfs2,
     title: "SILENT MOMENTS",
-    subtitle: "Private series — not available for acquisition.",
+    subtitle: "Private series — available for acquisition.",
+    category: "NOT FOR SALE",
+  },
+  {
+    id: 10,
+    image: nfs3,
+    title: "SILENT MOMENTS",
+    subtitle: "Private series — available for acquisition.",
     category: "NOT FOR SALE",
   },
 ];
@@ -146,24 +180,24 @@ function ParallaxProjectItem({ project, onOpenModal }) {
     offset: ["start end", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["-12%", "12%"]);
+  const y = useTransform(scrollYProgress, [0, 1], ["-6%", "6%"]);
 
   return (
     <div
       ref={containerRef}
-      className="min-h-[80vh] md:min-h-screen flex items-center px-4 sm:px-6 md:px-12 py-12 md:py-20"
+      className="flex items-center px-2 sm:px-4 md:px-6 py-6 md:py-10"
     >
       <div className="max-w-6xl mx-auto w-full">
         <div
           onClick={() => onOpenModal(project)}
-          className="relative h-70 sm:h-95 md:h-125 w-full overflow-hidden rounded-lg cursor-pointer group"
+          className="relative w-full overflow-hidden rounded-lg cursor-pointer group bg-neutral-900 flex items-center justify-center"
         >
           <motion.img
             src={project.image}
             alt={project.title}
             loading="lazy"
             style={{ y }}
-            className="absolute inset-0 w-full h-[125%] object-cover top-[-12.5%] transition-transform duration-500 group-hover:scale-105"
+            className="w-full max-h-[60vh] md:max-h-[70vh] object-contain transition-transform duration-500 group-hover:scale-102"
           />
 
           <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
@@ -173,19 +207,19 @@ function ParallaxProjectItem({ project, onOpenModal }) {
           </div>
         </div>
 
-        <div className="mt-6 md:mt-8 space-y-3 md:space-y-4">
+        <div className="mt-4 md:mt-6 space-y-2 md:space-y-3">
           <div className="flex flex-row items-center justify-between gap-3">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-white tracking-wide">
+            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white tracking-wide">
               {project.title}
             </h2>
-            {project.category !== "NOT FOR SALE" && <BuyButton />}
+            <BuyButton />
           </div>
 
-          <p className="text-base sm:text-xl md:text-3xl text-gray-200 font-light">
+          <p className="text-sm sm:text-base md:text-lg text-gray-200 font-light">
             {project.subtitle}
           </p>
 
-          <p className="uppercase tracking-[0.25em] md:tracking-[0.35em] text-gray-400 underline text-xs md:text-sm">
+          <p className="uppercase tracking-[0.2em] text-gray-400 underline text-xs">
             {project.category}
           </p>
         </div>
@@ -236,20 +270,16 @@ function ImageModal({ project, onClose }) {
         <img
           src={project.image}
           alt={project.title}
-          className="max-h-[60vh] sm:max-h-[70vh] md:max-h-[75vh] w-auto max-w-full object-contain rounded-lg shadow-2xl"
+          className="max-h-[80vh] w-auto max-w-full object-contain rounded-lg shadow-2xl"
         />
 
-        <div className="mt-4 md:mt-6 text-center space-y-3 md:space-y-4 px-2">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white">
-              {project.title}
-            </h3>
-            <p className="text-sm md:text-base text-gray-400 mt-1">
-              {project.subtitle}
-            </p>
-          </div>
-
-          {project.category !== "NOT FOR SALE" && <BuyButton />}
+        <div className="mt-4 md:mt-6 text-center space-y-1 px-2">
+          <h3 className="text-xl sm:text-2xl font-bold text-white">
+            {project.title}
+          </h3>
+          <p className="text-sm md:text-base text-gray-400">
+            {project.subtitle}
+          </p>
         </div>
       </motion.div>
     </motion.div>
@@ -259,9 +289,8 @@ function ImageModal({ project, onClose }) {
 export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("NOT AN ARTIST");
   const [selectedProject, setSelectedProject] = useState(null);
-  const [viewMode, setViewMode] = useState("feed"); // 'feed' (parallax scroll) or 'grid' (see all images)
+  const [viewMode, setViewMode] = useState("feed");
 
-  // Listen for URL hash changes (e.g. site.com/#not-for-sale)
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash.toLowerCase();
@@ -272,7 +301,7 @@ export default function GalleryPage() {
       }
     };
 
-    handleHashChange(); // Check on mount
+    handleHashChange();
     window.addEventListener("hashchange", handleHashChange);
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
@@ -283,9 +312,7 @@ export default function GalleryPage() {
 
   return (
     <section className="relative bg-black text-white min-h-screen select-none">
-      {/* CATEGORY TOGGLE BAR */}
       <div className="sticky top-0 z-40 bg-black/80 backdrop-blur-md border-b border-white/10 px-3 py-3 sm:px-8 flex flex-row items-center justify-between gap-2">
-        {/* Category Toggles */}
         <div className="flex items-center space-x-1 sm:space-x-2 bg-neutral-900 p-1 sm:p-1.5 rounded-full border border-white/10 shrink-0">
           <button
             onClick={() => {
@@ -316,13 +343,11 @@ export default function GalleryPage() {
           </button>
         </div>
 
-        {/* View All / Feed Switcher */}
         <button
           onClick={() => setViewMode(viewMode === "feed" ? "grid" : "feed")}
           className="text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] border border-white/20 p-2 sm:px-4 sm:py-2 rounded-full hover:bg-white hover:text-black transition-colors flex items-center justify-center shrink-0"
           title={viewMode === "feed" ? "Switch to Grid View" : "Switch to Parallax Feed"}
         >
-          {/* Icon view on small/mobile screens */}
           {viewMode === "feed" ? (
             <>
               <svg className="w-4 h-4 md:hidden" fill="currentColor" viewBox="0 0 24 24">
@@ -342,27 +367,26 @@ export default function GalleryPage() {
       </div>
 
       <div className="flex flex-col md:flex-row">
-        {/* SIDEBAR TITLE */}
         <div className="sticky top-14 md:top-20 h-10 md:h-[calc(100vh-80px)] w-full md:w-24 lg:w-28 flex items-center justify-center border-b md:border-b-0 md:border-r border-white/10 bg-black z-30 shrink-0">
           <h2 className="md:[writing-mode:vertical-rl] md:[text-orientation:upright] text-white uppercase tracking-[0.3em] font-bold text-xs md:text-lg">
             {activeCategory}
           </h2>
         </div>
 
-        {/* MAIN DISPLAY AREA */}
         <div className="flex-1 w-full">
           {viewMode === "feed" ? (
-            /* FEED VIEW: Full Parallax list */
             <div>
-              {filteredProjects.map((project) => (
-                <ParallaxProjectItem
-                  key={project.id}
-                  project={project}
-                  onOpenModal={setSelectedProject}
-                />
-              ))}
+              {/* Grid layout with 2 columns on medium+ screens for both categories */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 sm:p-6">
+                {filteredProjects.map((project) => (
+                  <ParallaxProjectItem
+                    key={project.id}
+                    project={project}
+                    onOpenModal={setSelectedProject}
+                  />
+                ))}
+              </div>
 
-              {/* SEE ALL IMAGES BUTTON */}
               <div className="py-16 md:py-24 text-center border-t border-white/10 px-4">
                 <button
                   onClick={() => setViewMode("grid")}
@@ -376,7 +400,6 @@ export default function GalleryPage() {
               </div>
             </div>
           ) : (
-            /* GRID VIEW: See All Images */
             <div className="p-6 md:p-12">
               <h3 className="text-xl md:text-2xl uppercase tracking-[0.2em] mb-8 text-neutral-400">
                 All Pictures — {activeCategory}
@@ -386,14 +409,14 @@ export default function GalleryPage() {
                   <div
                     key={project.id}
                     onClick={() => setSelectedProject(project)}
-                    className="group relative aspect-square bg-neutral-900 rounded-lg overflow-hidden cursor-pointer border border-white/10 hover:border-white/40 transition-colors"
+                    className="group relative aspect-square bg-neutral-900 rounded-lg overflow-hidden cursor-pointer border border-white/10 hover:border-white/40 transition-colors p-2 flex items-center justify-center"
                   >
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                      className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
                       <h4 className="text-white font-bold text-base">{project.title}</h4>
                       <p className="text-neutral-300 text-xs">{project.subtitle}</p>
                     </div>
@@ -405,7 +428,6 @@ export default function GalleryPage() {
         </div>
       </div>
 
-      {/* FULLSCREEN MODAL */}
       <AnimatePresence>
         {selectedProject && (
           <ImageModal

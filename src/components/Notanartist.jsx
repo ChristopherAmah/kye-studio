@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import {
   motion,
   useScroll,
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import not1 from "../assets/heroart/DSC_0508.JPG";
-import not2 from "../assets/heroart/DSC_0516.JPG";
-import not3 from "../assets/heroart/DSC_0528.JPG";
-import not4 from "../assets/heroart/DSC_0548.JPG";
+import not1 from "../assets/na1.jpeg";
+import not2 from "../assets/na2.jpeg";
+import not3 from "../assets/na3.jpeg";
+import not4 from "../assets/na4.jpeg";
+import not5 from "../assets/na5.jpeg";
+import not6 from "../assets/na6.jpeg";
+import not7 from "../assets/na7.jpeg";
 
 const INSTAGRAM_URL = "https://www.instagram.com/cashflowsteadysniping?igsh=MTg1b2R2bmR6ZTYwcw==";
 const WHATSAPP_URL = "https://wa.me/1234567890?text=Hi!%20I'm%20interested%20in%20buying%20an%20art%20piece.";
@@ -262,7 +266,7 @@ export default function ShowcaseSection() {
               href="#gallery"
               className="inline-flex items-center space-x-3 text-white border border-white/30 hover:border-white px-6 py-3.5 md:px-8 md:py-4 rounded-full uppercase tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm transition-all duration-300 hover:bg-white hover:text-black group active:scale-95"
             >
-              <span>See More Pictures</span>
+              <Link to='/works'><span>See More Pictures</span></Link>
               <span className="transform group-hover:translate-x-1 transition-transform">
                 &gt;
               </span>

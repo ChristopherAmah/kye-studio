@@ -19,7 +19,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`bg-[#f6f4ef] text-black overflow-hidden px-5 sm:px-6 md:px-10 lg:px-14 pt-16 md:pt-24 pb-6 transition-all duration-700 ${
+      className={`theme-surface theme-text overflow-hidden px-5 sm:px-6 md:px-10 lg:px-14 pt-16 md:pt-24 pb-6 transition-all duration-700 ${
         visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-12"
       }`}
     id="footer">
@@ -53,21 +53,21 @@ export default function Footer() {
 
 
       {/* Projects & Contact Grid */}
-      <div className="grid grid-cols-2 gap-6 sm:gap-10 md:gap-20 pt-12 border-t border-black/20 md:pt-16">
+      <div className="grid grid-cols-2 gap-6 sm:gap-10 md:gap-20 pt-12 border-t theme-border md:pt-16">
         {/* Projects */}
         <div>
-          <h3 className="text-xs sm:text-sm md:text-lg uppercase tracking-[0.25em] md:tracking-[0.35em] text-neutral-500 mb-5 md:mb-8">
+          <h3 className="text-xs sm:text-sm md:text-lg uppercase tracking-[0.25em] md:tracking-[0.35em] theme-muted mb-5 md:mb-8">
             Projects
           </h3>
           <div className="space-y-4 md:space-y-6">
             <a href="#not-an-artist" className="flex items-center gap-3 md:gap-6 group">
-              <span className="text-neutral-400 text-xs sm:text-sm md:text-lg w-5 md:w-8">01</span>
+              <span className="theme-muted text-xs sm:text-sm md:text-lg w-5 md:w-8">01</span>
               <span className="text-base sm:text-xl md:text-2xl font-light transition-transform duration-300 group-hover:translate-x-2">
                 NOT AN ARTIST
               </span>
             </a>
             <a href="#not-for-sale" className="flex items-center gap-3 md:gap-6 group">
-              <span className="text-neutral-400 text-xs sm:text-sm md:text-lg w-5 md:w-8">02</span>
+              <span className="theme-muted text-xs sm:text-sm md:text-lg w-5 md:w-8">02</span>
               <span className="text-base sm:text-xl md:text-2xl font-light transition-transform duration-300 group-hover:translate-x-2">
                 NOT FOR SALE
               </span>
@@ -77,7 +77,7 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h3 className="text-xs sm:text-sm md:text-lg uppercase tracking-[0.25em] md:tracking-[0.35em] text-neutral-500 mb-5 md:mb-8">
+          <h3 className="text-xs sm:text-sm md:text-lg uppercase tracking-[0.25em] md:tracking-[0.35em] theme-muted mb-5 md:mb-8">
             Contact
           </h3>
           <div className="flex flex-col gap-3 md:gap-5">
@@ -95,15 +95,15 @@ export default function Footer() {
       </div>
 
       {/* Meta info bar */}
-      <div className="border-t border-black/20 mt-16 md:mt-24 pt-6 flex flex-row justify-between items-center text-sm md:text-base tracking-wider text-neutral-500 mb-8">
+      <div className="border-t theme-border mt-16 md:mt-24 pt-6 flex flex-row justify-between items-center text-sm md:text-base tracking-wider theme-muted mb-8">
         <span>© {new Date().getFullYear()} UNMADE</span>
         <a
           href="https://christopheramahportfolio.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:text-black transition-colors duration-300"
+          className="hover:opacity-80 transition-colors duration-300"
         >
-          Made by <span className="text-lg md:text-xl text-black">AMAH</span>
+          Made by <span className="text-lg md:text-xl theme-text">AMAH</span>
         </a>
       </div>
 

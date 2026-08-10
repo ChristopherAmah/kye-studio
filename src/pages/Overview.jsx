@@ -45,7 +45,7 @@ const Overview = () => {
   }, [navigate]);
 
   return (
-    <div className="relative flex h-screen w-full items-center justify-center overflow-hidden bg-white">
+    <div className="relative flex h-screen w-full items-center justify-center overflow-hidden theme-bg theme-text">
       {/* Kye Loader */}
       <div className="kye-loader-ring" aria-label="Loading UNMADES">
         {KYE_MARKS.map((mark, index) => (

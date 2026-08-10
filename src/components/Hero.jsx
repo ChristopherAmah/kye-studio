@@ -22,7 +22,7 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section className="relative min-h-screen h-dvh overflow-hidden bg-black">
+    <section className="relative min-h-screen h-dvh overflow-hidden theme-bg theme-text">
       {/* Background Images */}
       <div className="absolute inset-0">
         {BACKGROUND_IMAGES.map((src, index) => (
@@ -37,7 +37,7 @@ export default function HeroSection() {
         ))}
 
         {/* Cinematic Overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-black/40 via-black/10 to-black/70" />
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-[color:var(--color-overlay)] to-[color:var(--color-scrim)]" />
       </div>
 
       {/* Hero Title */}
@@ -83,7 +83,7 @@ export default function HeroSection() {
                 tracking-[0.45em]
                 font-light
 
-                text-white/60
+                theme-muted
                 whitespace-nowrap
               "
             >

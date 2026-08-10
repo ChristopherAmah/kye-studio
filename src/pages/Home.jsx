@@ -8,7 +8,7 @@ import Notforsale from '../components/Notforsale'
 
 const Home = () => {
   return (
-    <div className='bg-black'>
+    <div className="theme-bg theme-text min-h-screen">
      <Hero />
      {/* <Navbar /> */}
      <Intro />

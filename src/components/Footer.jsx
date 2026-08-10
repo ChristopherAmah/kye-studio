@@ -2,7 +2,7 @@ import React from "react";
 
 export default function Footer() {
   return (
-    <footer className="bg-[#F8F8F6] text-black flex flex-col px-5 sm:px-6 md:px-10 pt-8 md:pt-10 pb-8 md:pb-10 min-h-[70vh] md:min-h-screen">
+    <footer className="theme-surface theme-text flex flex-col px-5 sm:px-6 md:px-10 pt-8 md:pt-10 pb-8 md:pb-10 min-h-[70vh] md:min-h-screen">
 
       {/* Huge Title */}
       <div className="overflow-hidden">
@@ -51,7 +51,7 @@ export default function Footer() {
       </a>
 
       {/* Divider */}
-      <div className="border-t border-black mb-8 md:mb-10" />
+      <div className="border-t theme-border-strong mb-8 md:mb-10" />
 
       {/* Bottom */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
@@ -83,7 +83,7 @@ export default function Footer() {
             <form
               className="
                 border
-                border-black
+                theme-border
                 rounded-3xl
                 md:rounded-full
                 flex
@@ -110,7 +110,7 @@ export default function Footer() {
                   text-lg
                   sm:text-xl
                   md:text-3xl
-                  placeholder:text-black
+                  placeholder:text-[var(--color-muted)]
                 "
               />
 
