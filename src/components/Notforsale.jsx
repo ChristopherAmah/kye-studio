@@ -10,7 +10,7 @@ import not1 from "../assets/nfs1.jpeg";
 import not2 from "../assets/nfs2.jpeg";
 import not3 from "../assets/nfs3.jpeg";
 
-const INSTAGRAM_URL = "https://www.instagram.com/cashflowsteadysniping?igsh=MTg1b2R2bmR6ZTYwcw==";
+const INSTAGRAM_URL = "https://ig.me/m/cashflowsteadysniping";
 
 const projects = [
   {

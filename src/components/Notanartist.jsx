@@ -14,7 +14,7 @@ import not5 from "../assets/na5.jpeg";
 import not6 from "../assets/na6.jpeg";
 import not7 from "../assets/na7.jpeg";
 
-const INSTAGRAM_URL = "https://www.instagram.com/cashflowsteadysniping?igsh=MTg1b2R2bmR6ZTYwcw==";
+const INSTAGRAM_URL = "https://ig.me/m/cashflowsteadysniping";
 
 const projects = [
   {

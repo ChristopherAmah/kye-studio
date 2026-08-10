@@ -18,7 +18,7 @@ import nfs1 from "../assets/nfs1.jpeg";
 import nfs2 from "../assets/nfs2.jpeg";
 import nfs3 from "../assets/nfs3.jpeg";
 
-const INSTAGRAM_URL = "https://www.instagram.com/cashflowsteadysniping?igsh=MTg1b2R2bmR6ZTYwcw==";
+const INSTAGRAM_URL = "https://ig.me/m/cashflowsteadysniping";
 
 // Unique IDs 1 through 10
 const allProjects = [
