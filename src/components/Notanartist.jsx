@@ -147,26 +147,26 @@ function ParallaxProjectItem({ project, onOpenModal }) {
             className="absolute inset-0 w-full h-[125%] object-cover top-[-12.5%] transition-transform duration-500 group-hover:scale-105"
           />
 
-          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-            <span className="text-white text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium border border-white/40 px-4 py-2.5 md:px-5 md:py-3 rounded-full backdrop-blur-md text-center">
+          <div className="absolute inset-0 image-scrim opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+            <span className="image-panel-text text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium border image-panel-border px-4 py-2.5 md:px-5 md:py-3 rounded-full backdrop-blur-md text-center">
               View Fullscreen
             </span>
           </div>
         </div>
 
-        <div className="mt-6 md:mt-8 space-y-3 md:space-y-4">
-          <div className="flex flex-row items-center justify-between gap-3">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-white tracking-wide">
+          <div className="mt-6 md:mt-8 space-y-3 md:space-y-4">
+            <div className="flex flex-row items-center justify-between gap-3">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold theme-text tracking-wide">
               {project.title}
             </h2>
             <BuyButton />
           </div>
 
-          <p className="text-base sm:text-xl md:text-3xl text-gray-200 font-light">
+          <p className="text-base sm:text-xl md:text-3xl theme-muted font-light">
             {project.subtitle}
           </p>
 
-          <p className="uppercase tracking-[0.25em] md:tracking-[0.35em] text-gray-400 underline text-xs md:text-sm">
+          <p className="uppercase tracking-[0.25em] md:tracking-[0.35em] theme-muted underline text-xs md:text-sm">
             {project.category}
           </p>
         </div>
@@ -197,11 +197,11 @@ function ImageModal({ project, onClose }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-lg p-4 sm:p-6 md:p-12 cursor-zoom-out overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center image-scrim backdrop-blur-lg p-4 sm:p-6 md:p-12 cursor-zoom-out overflow-y-auto"
     >
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white uppercase tracking-[0.2em] text-[10px] md:text-xs transition-colors z-10 bg-black/40 px-3 py-1.5 rounded-full border border-white/10"
+        className="absolute top-4 right-4 md:top-8 md:right-8 image-panel-close hover:opacity-100 uppercase tracking-[0.2em] text-[10px] md:text-xs transition-colors z-10 px-3 py-1.5 rounded-full border"
       >
         Close [ESC]
       </button>
@@ -222,10 +222,10 @@ function ImageModal({ project, onClose }) {
 
         <div className="mt-4 md:mt-6 text-center space-y-3 md:space-y-4 px-2">
           <div>
-            <h3 className="text-xl sm:text-2xl font-bold text-white">
+            <h3 className="text-xl sm:text-2xl font-bold image-panel-text">
               {project.title}
             </h3>
-            <p className="text-sm md:text-base text-gray-400 mt-1">
+            <p className="text-sm md:text-base image-panel-muted mt-1">
               {project.subtitle}
             </p>
           </div>
@@ -245,7 +245,7 @@ export default function ShowcaseSection() {
       <div className="flex flex-col md:flex-row">
         {/* MOBILE TOP BANNER / DESKTOP SIDEBAR */}
         <div className="sticky top-0 h-12 md:h-screen w-full md:w-24 lg:w-28 flex items-center justify-center border-b md:border-b-0 md:border-r border-white/10 bg-black z-30 shrink-0">
-          <h2 className="md:[writing-mode:vertical-rl] md:[text-orientation:upright] text-white uppercase tracking-[0.3em] font-bold text-xs md:text-lg">
+          <h2 className="md:[writing-mode:vertical-rl] md:[text-orientation:upright] theme-text uppercase tracking-[0.3em] font-bold text-xs md:text-lg">
             NOT AN ARTIST
           </h2>
         </div>
@@ -264,7 +264,7 @@ export default function ShowcaseSection() {
           <div className="py-16 md:py-24 text-center border-t border-white/10 px-4">
             <a
               href="#gallery"
-              className="inline-flex items-center space-x-3 text-white border border-white/30 hover:border-white px-6 py-3.5 md:px-8 md:py-4 rounded-full uppercase tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm transition-all duration-300 hover:bg-white hover:text-black group active:scale-95"
+              className="inline-flex items-center space-x-3 theme-text border theme-border-strong hover:border-[var(--color-border-strong)] px-6 py-3.5 md:px-8 md:py-4 rounded-full uppercase tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm transition-all duration-300 hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-text)] group active:scale-95"
             >
               <Link to='/works'><span>See More Pictures</span></Link>
               <span className="transform group-hover:translate-x-1 transition-transform">

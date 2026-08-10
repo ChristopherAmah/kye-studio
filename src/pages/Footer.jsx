@@ -45,7 +45,7 @@ export default function Footer() {
             select-none
             pointer-events-none
           "
-          style={{ WebkitTextStroke: "2px #111" }}
+          style={{ WebkitTextStroke: "2px var(--color-text)" }}
         >
           UNMADE
         </h1>

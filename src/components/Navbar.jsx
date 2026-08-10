@@ -1,8 +1,7 @@
-import { Moon } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function BottomNavbar() {
+export default function BottomNavbar({ theme, onToggleTheme }) {
   const [showLogo, setShowLogo] = useState(false);
   const [showNavbar, setShowNavbar] = useState(true);
 
@@ -80,12 +79,19 @@ export default function BottomNavbar() {
           </div>
         </div>
 
-        {/* Moon */}
-        {/*
-        <button className="absolute right-4 sm:right-6 md:right-12 transition-transform duration-300 hover:rotate-90">
-          <Moon size={20} className="sm:w-6 sm:h-6 md:w-7 md:h-7" strokeWidth={1.8} />
+        <button
+          type="button"
+          onClick={onToggleTheme}
+          className="absolute right-4 sm:right-6 md:right-12 inline-flex items-center gap-2 rounded-full border theme-border theme-surface px-3 py-2 text-[10px] sm:text-xs font-semibold uppercase tracking-[0.22em] theme-text shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
+          aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+        >
+          <span className="hidden sm:inline">
+            {theme === "dark" ? "Light Mode" : "Dark Mode"}
+          </span>
+          <span className="sm:hidden">
+            {theme === "dark" ? "Light" : "Dark"}
+          </span>
         </button>
-        */}
       </div>
     </nav>
   );

@@ -31,13 +31,13 @@ export default function HeroSection() {
             src={src}
             alt={`Slide ${index + 1}`}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1500 ease-in-out ${
-              index === currentIndex ? "opacity-40" : "opacity-0"
+              index === currentIndex ? "hero-slide" : "opacity-0"
             }`}
           />
         ))}
 
         {/* Cinematic Overlay */}
-        <div className="absolute inset-0 bg-linear-to-b from-transparent via-[color:var(--color-overlay)] to-[color:var(--color-scrim)]" />
+        <div className="absolute inset-0 hero-overlay" />
       </div>
 
       {/* Hero Title */}
@@ -81,9 +81,9 @@ export default function HeroSection() {
 
                 uppercase
                 tracking-[0.45em]
-                font-light
+                font-medium
 
-                theme-muted
+                hero-signature
                 whitespace-nowrap
               "
             >

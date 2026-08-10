@@ -27,49 +27,49 @@ const allProjects = [
   {
     id: 1,
     image: not1,
-    title: "THE FACE",
+    title: "#001",
     subtitle: "Exploring the depths of human expressions.",
     category: "NOT AN ARTIST",
   },
   {
     id: 2,
     image: not2,
-    title: "THE WALL",
+    title: "#002",
     subtitle: "A study in contrasts and connections.",
     category: "NOT AN ARTIST",
   },
   {
     id: 3,
     image: not3,
-    title: "THE EYES",
+    title: "#003",
     subtitle: "Capturing the essence of human emotion.",
     category: "NOT AN ARTIST",
   },
   {
     id: 4,
     image: not4,
-    title: "THE ART",
+    title: "#004",
     subtitle: "Exploring the boundaries of creative expression.",
     category: "NOT AN ARTIST",
   },
   {
     id: 5,
     image: not5,
-    title: "THE ART",
+    title: "#005",
     subtitle: "Exploring the boundaries of creative expression.",
     category: "NOT AN ARTIST",
   },
   {
     id: 6,
     image: not6,
-    title: "THE ART",
+    title: "#006",
     subtitle: "Exploring the boundaries of creative expression.",
     category: "NOT AN ARTIST",
   },
   {
     id: 7,
     image: not7,
-    title: "THE ART",
+    title: "#007",
     subtitle: "Exploring the boundaries of creative expression.",
     category: "NOT AN ARTIST",
   },
@@ -78,21 +78,21 @@ const allProjects = [
   {
     id: 8,
     image: nfs1,
-    title: "UNPUBLISHED SHADOWS",
+    title: "#008",
     subtitle: "Archival personal collection piece 01.",
     category: "NOT FOR SALE",
   },
   {
     id: 9,
     image: nfs2,
-    title: "SILENT MOMENTS",
+    title: "#009",
     subtitle: "Private series — available for acquisition.",
     category: "NOT FOR SALE",
   },
   {
     id: 10,
     image: nfs3,
-    title: "SILENT MOMENTS",
+    title: "#010",
     subtitle: "Private series — available for acquisition.",
     category: "NOT FOR SALE",
   },
@@ -200,8 +200,8 @@ function ParallaxProjectItem({ project, onOpenModal }) {
             className="w-full max-h-[60vh] md:max-h-[70vh] object-contain transition-transform duration-500 group-hover:scale-102"
           />
 
-          <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
-            <span className="text-white text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium border border-white/40 px-4 py-2.5 md:px-5 md:py-3 rounded-full backdrop-blur-md text-center">
+          <div className="absolute inset-0 image-scrim opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center p-4">
+            <span className="image-panel-text text-xs md:text-sm uppercase tracking-[0.2em] md:tracking-[0.3em] font-medium border image-panel-border px-4 py-2.5 md:px-5 md:py-3 rounded-full backdrop-blur-md text-center">
               View Fullscreen
             </span>
           </div>
@@ -250,11 +250,11 @@ function ImageModal({ project, onClose }) {
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
       onClick={onClose}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 backdrop-blur-lg p-4 sm:p-6 md:p-12 cursor-zoom-out overflow-y-auto"
+      className="fixed inset-0 z-50 flex items-center justify-center image-scrim backdrop-blur-lg p-4 sm:p-6 md:p-12 cursor-zoom-out overflow-y-auto"
     >
       <button
         onClick={onClose}
-        className="absolute top-4 right-4 md:top-8 md:right-8 text-white/70 hover:text-white uppercase tracking-[0.2em] text-[10px] md:text-xs transition-colors z-10 bg-black/40 px-3 py-1.5 rounded-full border border-white/10"
+        className="absolute top-4 right-4 md:top-8 md:right-8 image-panel-close hover:opacity-100 uppercase tracking-[0.2em] text-[10px] md:text-xs transition-colors z-10 px-3 py-1.5 rounded-full border"
       >
         Close [ESC]
       </button>
@@ -321,8 +321,8 @@ export default function GalleryPage() {
             }}
             className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-semibold tracking-wider sm:tracking-widest uppercase transition-all duration-300 ${
               activeCategory === "NOT AN ARTIST"
-                ? "bg-white text-black shadow-md"
-                : "text-gray-400 hover:text-white"
+                ? "bg-[var(--color-text)] text-[var(--color-bg)] shadow-md"
+                : "text-[var(--color-muted)] hover:text-[var(--color-text)]"
             }`}
           >
             NOT AN ARTIST
@@ -335,8 +335,8 @@ export default function GalleryPage() {
             }}
             className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-semibold tracking-wider sm:tracking-widest uppercase transition-all duration-300 ${
               activeCategory === "NOT FOR SALE"
-                ? "bg-white text-black shadow-md"
-                : "text-gray-400 hover:text-white"
+                ? "bg-[var(--color-text)] text-[var(--color-bg)] shadow-md"
+                : "text-[var(--color-muted)] hover:text-[var(--color-text)]"
             }`}
           >
             NOT FOR SALE
@@ -345,7 +345,7 @@ export default function GalleryPage() {
 
         <button
           onClick={() => setViewMode(viewMode === "feed" ? "grid" : "feed")}
-          className="text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] border border-white/20 p-2 sm:px-4 sm:py-2 rounded-full hover:bg-white hover:text-black transition-colors flex items-center justify-center shrink-0"
+          className="text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] border theme-border p-2 sm:px-4 sm:py-2 rounded-full theme-text hover:bg-[var(--color-text)] hover:text-[var(--color-bg)] transition-colors flex items-center justify-center shrink-0"
           title={viewMode === "feed" ? "Switch to Grid View" : "Switch to Parallax Feed"}
         >
           {viewMode === "feed" ? (
@@ -367,8 +367,8 @@ export default function GalleryPage() {
       </div>
 
       <div className="flex flex-col md:flex-row">
-        <div className="sticky top-14 md:top-20 h-10 md:h-[calc(100vh-80px)] w-full md:w-24 lg:w-28 flex items-center justify-center border-b md:border-b-0 md:border-r border-white/10 bg-black z-30 shrink-0">
-          <h2 className="md:[writing-mode:vertical-rl] md:[text-orientation:upright] text-white uppercase tracking-[0.3em] font-bold text-xs md:text-lg">
+        <div className="sticky top-14 md:top-20 h-10 md:h-[calc(100vh-80px)] w-full md:w-24 lg:w-28 flex items-center justify-center border-b md:border-b-0 md:border-r theme-border bg-[var(--color-bg)] z-30 shrink-0">
+          <h2 className="md:[writing-mode:vertical-rl] md:[text-orientation:upright] theme-text uppercase tracking-[0.3em] font-bold text-xs md:text-lg">
             {activeCategory}
           </h2>
         </div>
@@ -390,7 +390,7 @@ export default function GalleryPage() {
               <div className="py-16 md:py-24 text-center border-t border-white/10 px-4">
                 <button
                   onClick={() => setViewMode("grid")}
-                  className="inline-flex items-center space-x-3 text-white border border-white/30 hover:border-white px-6 py-3.5 md:px-8 md:py-4 rounded-full uppercase tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm transition-all duration-300 hover:bg-white hover:text-black group active:scale-95"
+                  className="inline-flex items-center space-x-3 theme-text border theme-border-strong hover:border-[var(--color-border-strong)] px-6 py-3.5 md:px-8 md:py-4 rounded-full uppercase tracking-[0.2em] md:tracking-[0.3em] text-xs md:text-sm transition-all duration-300 hover:bg-[var(--color-surface-strong)] hover:text-[var(--color-text)] group active:scale-95"
                 >
                   <span>See More Pictures From Here</span>
                   <span className="transform group-hover:translate-x-1 transition-transform">

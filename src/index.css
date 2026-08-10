@@ -112,6 +112,66 @@ body {
   background-color: var(--color-overlay);
 }
 
+.hero-slide {
+  opacity: 0.4;
+  transition: opacity 300ms ease, filter 300ms ease;
+  filter: saturate(1.05) contrast(1.04);
+}
+
+:root[data-theme="light"] .hero-slide {
+  opacity: 0.58;
+  filter: saturate(1.1) contrast(1.08) brightness(0.96);
+}
+
+:root[data-theme="dark"] .hero-slide {
+  opacity: 0.4;
+}
+
+.hero-overlay {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0.74));
+}
+
+:root[data-theme="light"] .hero-overlay {
+  display: none;
+}
+
+.hero-signature {
+  color: var(--color-text);
+  text-shadow: 0 1px 10px rgba(0, 0, 0, 0.25);
+}
+
+:root[data-theme="dark"] .hero-signature {
+  color: rgba(255, 255, 255, 0.82);
+  text-shadow: 0 1px 12px rgba(0, 0, 0, 0.65);
+}
+
+.image-scrim {
+  background-color: rgba(0, 0, 0, 0.42);
+}
+
+.image-panel {
+  background-color: rgba(10, 10, 10, 0.88);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+.image-panel-text {
+  color: #ffffff;
+}
+
+.image-panel-muted {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.image-panel-border {
+  border-color: rgba(255, 255, 255, 0.38);
+}
+
+.image-panel-close {
+  color: rgba(255, 255, 255, 0.72);
+  background-color: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
 :root[data-theme="light"] .bg-black,
 :root[data-theme="light"] .bg-black\/40,
 :root[data-theme="light"] .bg-black\/80,

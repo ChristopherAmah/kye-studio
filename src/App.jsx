@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
-import { MoonStar, SunMedium } from "lucide-react";
 import "./App.css";
 
 import Overview from "./pages/Overview";
@@ -60,26 +59,9 @@ function App() {
       {/* Scroll helper placed inside the Router context */}
       <ScrollToTop />
 
-      <button
-        type="button"
-        onClick={toggleTheme}
-        className="fixed right-4 top-4 z-[60] inline-flex items-center gap-2 rounded-full border theme-border theme-surface px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] theme-text shadow-lg backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
-        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
-      >
-        {theme === "dark" ? (
-          <>
-            <SunMedium size={14} />
-            Light
-          </>
-        ) : (
-          <>
-            <MoonStar size={14} />
-            Dark
-          </>
-        )}
-      </button>
-
-      {showLayout && <Navbar />}
+      {showLayout && (
+        <Navbar theme={theme} onToggleTheme={toggleTheme} />
+      )}
 
       <Routes>
         <Route path="/" element={<Overview />} />
