@@ -35,9 +35,9 @@ export default function BottomNavbar({ theme, onToggleTheme }) {
         showNavbar ? "translate-y-0" : "translate-y-full"
       }`}
     >
-      <div className="flex items-center justify-between h-full px-4 sm:px-6 md:px-12 gap-4">
-        {/* Left: Logo */}
-        <div className="flex-1 flex justify-start min-w-0">
+      <div className="relative flex items-center justify-between h-full px-4 sm:px-6 md:px-12">
+        {/* Left: Logo (Hidden on small screens) */}
+        <div className="hidden md:block min-w-0">
           <div
             className={`uppercase font-semibold tracking-tight transition-all duration-700 ease-[cubic-bezier(.22,1,.36,1)] ${
               showLogo
@@ -49,8 +49,8 @@ export default function BottomNavbar({ theme, onToggleTheme }) {
           </div>
         </div>
 
-        {/* Center: Navigation */}
-        <div className="flex items-center justify-center gap-4 sm:gap-8 md:gap-12 lg:gap-16 text-xs sm:text-sm md:text-base lg:text-lg font-medium font-aeonik tracking-wide shrink-0">
+        {/* Center: Navigation (Always dead-centered) */}
+        <div className="absolute left-1/2 -translate-x-1/2 flex items-center gap-3 sm:gap-8 md:gap-12 lg:gap-16 text-xs sm:text-sm md:text-base lg:text-lg font-medium font-aeonik tracking-wide shrink-0">
           <Link to="/home" className="hover:opacity-60 transition">
             HOME
           </Link>
@@ -69,7 +69,7 @@ export default function BottomNavbar({ theme, onToggleTheme }) {
         </div>
 
         {/* Right: Theme Toggle */}
-        <div className="flex-1 flex justify-end min-w-0">
+        <div className="ml-auto min-w-0">
           <button
             type="button"
             onClick={onToggleTheme}
