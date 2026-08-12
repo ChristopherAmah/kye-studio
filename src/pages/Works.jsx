@@ -6,96 +6,49 @@ import {
   AnimatePresence,
 } from "framer-motion";
 
-// Sample image imports
-import not1 from "../assets/na1.jpeg";
-import not2 from "../assets/na2.jpeg";
-import not3 from "../assets/na3.jpeg";
-import not4 from "../assets/na4.jpeg";
-import not5 from "../assets/na5.jpeg";
-import not6 from "../assets/na6.jpeg";
-import not7 from "../assets/na7.jpeg";
-import nfs1 from "../assets/nfs1.jpeg";
-import nfs2 from "../assets/nfs2.jpeg";
-import nfs3 from "../assets/nfs3.jpeg";
-
 const INSTAGRAM_URL = "https://ig.me/m/cashflowsteadysniping";
 
-// Unique IDs 1 through 10
-const allProjects = [
-  // --- NOT AN ARTIST CATEGORY ---
-  {
-    id: 1,
-    image: not1,
-    title: "#001",
-    subtitle: "Exploring the depths of human expressions.",
-    category: "NOT AN ARTIST",
-  },
-  {
-    id: 2,
-    image: not2,
-    title: "#002",
-    subtitle: "A study in contrasts and connections.",
-    category: "NOT AN ARTIST",
-  },
-  {
-    id: 3,
-    image: not3,
-    title: "#003",
-    subtitle: "Capturing the essence of human emotion.",
-    category: "NOT AN ARTIST",
-  },
-  {
-    id: 4,
-    image: not4,
-    title: "#004",
-    subtitle: "Exploring the boundaries of creative expression.",
-    category: "NOT AN ARTIST",
-  },
-  {
-    id: 5,
-    image: not5,
-    title: "#005",
-    subtitle: "Exploring the boundaries of creative expression.",
-    category: "NOT AN ARTIST",
-  },
-  {
-    id: 6,
-    image: not6,
-    title: "#006",
-    subtitle: "Exploring the boundaries of creative expression.",
-    category: "NOT AN ARTIST",
-  },
-  {
-    id: 7,
-    image: not7,
-    title: "#007",
-    subtitle: "Exploring the boundaries of creative expression.",
-    category: "NOT AN ARTIST",
-  },
+const formatNumber = (value) => String(value).padStart(3, "0");
 
-  // --- NOT FOR SALE CATEGORY ---
-  {
-    id: 8,
-    image: nfs1,
-    title: "#008",
-    subtitle: "Archival personal collection piece 01.",
+const getNumericSuffix = (path) => {
+  const match = path.match(/(\d+)\.(?:jpe?g|JPE?G)$/);
+  return match ? Number(match[1]) : 0;
+};
+
+const sortByNumericSuffix = ([firstPath], [secondPath]) =>
+  getNumericSuffix(firstPath) - getNumericSuffix(secondPath);
+
+const notAnArtistImages = Object.entries(
+  import.meta.glob("../assets/notanartist/*.jpeg", {
+    eager: true,
+    import: "default",
+    query: "?url",
+  })
+)
+  .sort(sortByNumericSuffix)
+  .map(([, image], index) => ({
+    id: index + 1,
+    image,
+    title: formatNumber(index + 1),
+    category: "NOT AN ARTIST",
+  }));
+
+const notForSaleImages = Object.entries(
+  import.meta.glob("../assets/notforsale/*.jpeg", {
+    eager: true,
+    import: "default",
+    query: "?url",
+  })
+)
+  .sort(sortByNumericSuffix)
+  .map(([, image], index) => ({
+    id: index + 1,
+    image,
+    title: formatNumber(index + 1),
     category: "NOT FOR SALE",
-  },
-  {
-    id: 9,
-    image: nfs2,
-    title: "#009",
-    subtitle: "Private series — available for acquisition.",
-    category: "NOT FOR SALE",
-  },
-  {
-    id: 10,
-    image: nfs3,
-    title: "#010",
-    subtitle: "Private series — available for acquisition.",
-    category: "NOT FOR SALE",
-  },
-];
+  }));
+
+const allProjects = [...notAnArtistImages, ...notForSaleImages];
 
 function BuyButton() {
   return (
@@ -152,10 +105,6 @@ function ParallaxProjectItem({ project, onOpenModal }) {
             </h2>
             <BuyButton />
           </div>
-
-          <p className="text-sm sm:text-base md:text-lg text-gray-200 font-light">
-            {project.subtitle}
-          </p>
 
           <p className="uppercase tracking-[0.2em] text-gray-400 underline text-xs">
             {project.category}
@@ -215,9 +164,6 @@ function ImageModal({ project, onClose }) {
           <h3 className="text-xl sm:text-2xl font-bold text-white">
             {project.title}
           </h3>
-          <p className="text-sm md:text-base text-gray-400">
-            {project.subtitle}
-          </p>
         </div>
       </motion.div>
     </motion.div>
@@ -314,11 +260,10 @@ export default function GalleryPage() {
         <div className="flex-1 w-full">
           {viewMode === "feed" ? (
             <div>
-              {/* Grid layout with 2 columns on medium+ screens for both categories */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 sm:p-6">
                 {filteredProjects.map((project) => (
                   <ParallaxProjectItem
-                    key={project.id}
+                    key={`${project.category}-${project.id}`}
                     project={project}
                     onOpenModal={setSelectedProject}
                   />
@@ -345,7 +290,7 @@ export default function GalleryPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProjects.map((project) => (
                   <div
-                    key={project.id}
+                    key={`${project.category}-${project.id}`}
                     onClick={() => setSelectedProject(project)}
                     className="group relative aspect-square bg-neutral-900 rounded-lg overflow-hidden cursor-pointer border border-white/10 hover:border-white/40 transition-colors p-2 flex items-center justify-center"
                   >
@@ -355,8 +300,9 @@ export default function GalleryPage() {
                       className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-4 flex flex-col justify-end">
-                      <h4 className="text-white font-bold text-base">{project.title}</h4>
-                      <p className="text-neutral-300 text-xs">{project.subtitle}</p>
+                      <h4 className="text-white font-bold text-base">
+                        {project.title}
+                      </h4>
                     </div>
                   </div>
                 ))}

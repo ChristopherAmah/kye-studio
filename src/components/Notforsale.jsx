@@ -6,29 +6,26 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-import not1 from "../assets/nfs1.jpeg";
-import not2 from "../assets/nfs2.jpeg";
-import not3 from "../assets/nfs3.jpeg";
+import not1 from "../assets/notforsale/nfs1.jpeg";
+import not2 from "../assets/notforsale/nfs2.jpeg";
+import not3 from "../assets/notforsale/nfs3.jpeg";
 
 const INSTAGRAM_URL = "https://ig.me/m/cashflowsteadysniping";
 
 const projects = [
   {
     image: not1,
-    title: "THE FACE",
-    subtitle: "Exploring the depths of human expressions.",
+    title: "001",
     category: "NOT FOR SALE",
   },
   {
     image: not2,
-    title: "THE WALL",
-    subtitle: "A study in contrasts and connections.",
+    title: "002",
     category: "NOT FOR SALE",
   },
   {
     image: not3,
-    title: "THE EYES",
-    subtitle: "Capturing the essence of human emotion.",
+    title: "003",
     category: "NOT FOR SALE",
   },
 ];
@@ -89,10 +86,6 @@ function ParallaxProjectItem({ project, onOpenModal }) {
             <BuyButton />
           </div>
 
-          <p className="text-base sm:text-xl md:text-3xl theme-muted font-light">
-            {project.subtitle}
-          </p>
-
           <p className="uppercase tracking-[0.25em] md:tracking-[0.35em] theme-muted underline text-xs md:text-sm">
             {project.category}
           </p>
@@ -152,9 +145,6 @@ function ImageModal({ project, onClose }) {
             <h3 className="text-xl sm:text-2xl font-bold image-panel-text">
               {project.title}
             </h3>
-            <p className="text-sm md:text-base image-panel-muted mt-1">
-              {project.subtitle}
-            </p>
           </div>
 
           <BuyButton />

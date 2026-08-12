@@ -66,7 +66,7 @@ export default function Footer() {
         {/* Projects */}
         <div>
           <h3 className="text-xs sm:text-sm md:text-lg uppercase tracking-[0.2em] sm:tracking-[0.25em] md:tracking-[0.35em] theme-muted mb-4 sm:mb-5 md:mb-8">
-            Projects
+            Collections
           </h3>
           <div className="space-y-3 sm:space-y-4 md:space-y-6">
             <a href="#not-an-artist" className="flex items-center gap-2 sm:gap-3 md:gap-6 group">
@@ -91,15 +91,25 @@ export default function Footer() {
           </h3>
           <div className="flex flex-col gap-2.5 sm:gap-3 md:gap-5">
             <a
-              href="https://www.instagram.com/cashflowsteadysniping?igsh=MTg1b2R2bmR6ZTYwcw=="
+              href="https://www.instagram.com/cashflowsteadysniping/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="text-sm sm:text-xl md:text-2xl font-light transition-transform duration-300 hover:translate-x-2"
             >
               Instagram
             </a>
-            <a href="#" className="text-sm sm:text-xl md:text-2xl font-light transition-transform duration-300 hover:translate-x-2">
-              X / Twitter
+            <a
+              href="https://www.tiktok.com/@cashflowsteadysniping"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm sm:text-xl md:text-2xl font-light transition-transform duration-300 hover:translate-x-2"
+            >
+              TikTok
             </a>
-            <a href="mailto:hello@kyestudio.com" className="text-sm sm:text-xl md:text-2xl font-light transition-transform duration-300 hover:translate-x-2">
+            <a
+              href="mailto:kythekiddd@gmail.com"
+              className="text-sm sm:text-xl md:text-2xl font-light transition-transform duration-300 hover:translate-x-2"
+            >
               Email
             </a>
           </div>

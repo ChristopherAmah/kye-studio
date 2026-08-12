@@ -1,4 +1,4 @@
-export const userName = "Kye";
+export const userName = "Adeyemi Oyekanmi";
 
 export const answerVariants = {
   occupation: [

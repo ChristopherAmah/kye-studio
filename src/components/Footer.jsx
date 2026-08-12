@@ -24,7 +24,7 @@ export default function Footer() {
             select-none
           "
         >
-          UNMADES
+          UNMADE
         </h1>
       </div>
 
