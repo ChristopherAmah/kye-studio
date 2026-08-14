@@ -54,7 +54,7 @@ export default function About({ onSectionComplete }) {
           <div className="border theme-border p-8 rounded-2xl theme-surface-strong theme-text shadow-2xl space-y-6">
             <div className="flex items-center justify-between">
               <h1 className="text-3xl md:text-4xl font-bold tracking-tight theme-text">
-                Kye
+                Adeyemi Oyekanmi
               </h1>
               <span className="text-xs border border-emerald-500/40 text-emerald-400 px-3 py-1 rounded-full bg-emerald-950/30">
                 ACTIVE
@@ -70,11 +70,11 @@ export default function About({ onSectionComplete }) {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4 pt-4 border-t theme-border text-xs theme-muted">
               <div>
                 <span className="block theme-muted uppercase">Focus</span>
-                <span className="theme-text">Full-Stack & UI</span>
+                <span className="theme-text">Artist</span>
               </div>
               <div>
                 <span className="block theme-muted uppercase">Style</span>
-                <span className="theme-text">Minimal / Brutalist</span>
+                <span className="theme-text">Innovative / Creative</span>
               </div>
               <div>
                 <span className="block theme-muted uppercase">Location</span>
