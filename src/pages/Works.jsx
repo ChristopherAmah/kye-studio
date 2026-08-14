@@ -41,6 +41,33 @@ import nfs8 from "../assets/notforsale/nfs8.jpeg";
 import nfs9 from "../assets/notforsale/nfs9.jpeg";
 import nfs10 from "../assets/notforsale/nfs10.jpeg";
 
+const wallImageModules = import.meta.glob(
+  "../assets/thewall/*.{jpg,jpeg,png,webp,JPG,JPEG,PNG,WEBP}",
+  {
+    eager: true,
+    import: "default",
+  }
+);
+
+const wallProjects = Object.entries(wallImageModules)
+  .sort(([pathA], [pathB]) => {
+    const getSortKey = (path) => {
+      const fileName = path.split("/").pop() || "";
+      const match = fileName.match(/^(\d+)/);
+      return match ? Number(match[1]) : Number.MAX_SAFE_INTEGER;
+    };
+
+    return getSortKey(pathA) - getSortKey(pathB);
+  })
+  .map(([path, image], index) => ({
+    id: index + 1,
+    image,
+    path,
+    title: `THE WALL ${String(index + 1).padStart(2, "0")}`,
+    category: "THE WALL",
+    showMeta: false,
+  }));
+
 const notAnArtistProjects = [
   { id: 1, image: na1, title: "001", category: "NOT AN ARTIST", price: "$75" },
   { id: 2, image: na2, title: "002", category: "NOT AN ARTIST", price: "$75" },
@@ -92,6 +119,28 @@ function BuyButton({ project }) {
     >
       i want this piece
     </button>
+  );
+}
+
+function WallGalleryItem({ project, onOpenModal }) {
+  return (
+    <motion.button
+      type="button"
+      layout
+      whileHover={{ scale: 1.01 }}
+      whileTap={{ scale: 0.99 }}
+      onClick={() => onOpenModal(project)}
+      className="group relative w-full overflow-hidden rounded-2xl bg-neutral-900 border border-white/10 break-inside-avoid focus:outline-none focus:ring-2 focus:ring-white/40"
+      aria-label="Open THE WALL image"
+    >
+      <img
+        src={project.image}
+        alt={project.title}
+        loading="lazy"
+        className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+      />
+      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300" />
+    </motion.button>
   );
 }
 
@@ -197,14 +246,16 @@ function ImageModal({ project, onClose }) {
           className="max-h-[80vh] w-auto max-w-full object-contain rounded-lg shadow-2xl"
         />
 
-        <div className="mt-4 md:mt-6 text-center space-y-1 px-2">
-          <h3 className="text-xl sm:text-2xl font-bold text-white">
-            {project.title}
-          </h3>
-          <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-neutral-400">
-            {project.price}
-          </p>
-        </div>
+        {project.showMeta !== false && (
+          <div className="mt-4 md:mt-6 text-center space-y-1 px-2">
+            <h3 className="text-xl sm:text-2xl font-bold text-white">
+              {project.title}
+            </h3>
+            <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-neutral-400">
+              {project.price}
+            </p>
+          </div>
+        )}
       </motion.div>
     </motion.div>
   );
@@ -214,6 +265,7 @@ export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState("NOT AN ARTIST");
   const [selectedProject, setSelectedProject] = useState(null);
   const [viewMode, setViewMode] = useState("feed");
+  const [wallOffset, setWallOffset] = useState(0);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -222,6 +274,8 @@ export default function GalleryPage() {
         setActiveCategory("NOT FOR SALE");
       } else if (hash.includes("not-an-artist")) {
         setActiveCategory("NOT AN ARTIST");
+      } else if (hash.includes("the-wall")) {
+        setActiveCategory("THE WALL");
       }
     };
 
@@ -230,9 +284,26 @@ export default function GalleryPage() {
     return () => window.removeEventListener("hashchange", handleHashChange);
   }, []);
 
+  useEffect(() => {
+    if (activeCategory !== "THE WALL" || wallProjects.length <= 1) {
+      return undefined;
+    }
+
+    const intervalId = window.setInterval(() => {
+      setWallOffset((currentOffset) => (currentOffset + 1) % wallProjects.length);
+    }, 7000);
+
+    return () => window.clearInterval(intervalId);
+  }, [activeCategory]);
+
   const filteredProjects = allProjects.filter(
     (item) => item.category === activeCategory
   );
+
+  const wallDisplayProjects =
+    wallProjects.length > 0
+      ? [...wallProjects.slice(wallOffset), ...wallProjects.slice(0, wallOffset)]
+      : [];
 
   return (
     <section className="relative bg-black text-white min-h-screen select-none">
@@ -265,29 +336,45 @@ export default function GalleryPage() {
           >
             NOT FOR SALE
           </button>
+
+          <button
+            onClick={() => {
+              setActiveCategory("THE WALL");
+              window.location.hash = "the-wall";
+            }}
+            className={`px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-semibold tracking-wider sm:tracking-widest uppercase transition-all duration-300 ${
+              activeCategory === "THE WALL"
+                ? "bg-[var(--color-text)] text-[var(--color-bg)] shadow-md"
+                : "text-[var(--color-muted)] hover:text-[var(--color-text)]"
+            }`}
+          >
+            THE WALL
+          </button>
         </div>
 
-        <button
-          onClick={() => setViewMode(viewMode === "feed" ? "grid" : "feed")}
-          className="text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] border theme-border p-2 sm:px-4 sm:py-2 rounded-full theme-text hover:bg-[var(--color-text)] hover:text-[var(--color-bg)] transition-colors flex items-center justify-center shrink-0"
-          title={viewMode === "feed" ? "Switch to Grid View" : "Switch to Parallax Feed"}
-        >
-          {viewMode === "feed" ? (
-            <>
-              <svg className="w-4 h-4 md:hidden" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z"/>
-              </svg>
-              <span className="hidden md:inline">View All Grid</span>
-            </>
-          ) : (
-            <>
-              <svg className="w-4 h-4 md:hidden" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M4 5h16v3H4V5zm0 6h16v3H4v-3zm0 6h16v3H4v-3z"/>
-              </svg>
-              <span className="hidden md:inline">Switch to Parallax Feed</span>
-            </>
-          )}
-        </button>
+        {activeCategory !== "THE WALL" && (
+          <button
+            onClick={() => setViewMode(viewMode === "feed" ? "grid" : "feed")}
+            className="text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] border theme-border p-2 sm:px-4 sm:py-2 rounded-full theme-text hover:bg-[var(--color-text)] hover:text-[var(--color-bg)] transition-colors flex items-center justify-center shrink-0"
+            title={viewMode === "feed" ? "Switch to Grid View" : "Switch to Parallax Feed"}
+          >
+            {viewMode === "feed" ? (
+              <>
+                <svg className="w-4 h-4 md:hidden" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 4h4v4H4V4zm6 0h4v4h-4V4zm6 0h4v4h-4V4zM4 10h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4zM4 16h4v4H4v-4zm6 0h4v4h-4v-4zm6 0h4v4h-4v-4z"/>
+                </svg>
+                <span className="hidden md:inline">View All Grid</span>
+              </>
+            ) : (
+              <>
+                <svg className="w-4 h-4 md:hidden" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M4 5h16v3H4V5zm0 6h16v3H4v-3zm0 6h16v3H4v-3z"/>
+                </svg>
+                <span className="hidden md:inline">Switch to Parallax Feed</span>
+              </>
+            )}
+          </button>
+        )}
       </div>
 
       <div className="flex flex-col md:flex-row">
@@ -298,7 +385,19 @@ export default function GalleryPage() {
         </div>
 
         <div className="flex-1 w-full">
-          {viewMode === "feed" ? (
+          {activeCategory === "THE WALL" ? (
+            <div className="p-4 sm:p-6 md:p-8">
+              <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 md:gap-5 space-y-4 md:space-y-5">
+                {wallDisplayProjects.map((project) => (
+                  <WallGalleryItem
+                    key={project.path}
+                    project={project}
+                    onOpenModal={setSelectedProject}
+                  />
+                ))}
+              </div>
+            </div>
+          ) : viewMode === "feed" ? (
             <div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 p-4 sm:p-6">
                 {filteredProjects.map((project) => (
