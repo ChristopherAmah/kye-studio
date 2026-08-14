@@ -6,48 +6,82 @@ import {
   AnimatePresence,
 } from "framer-motion";
 import { openInstagramDm } from "../utils/instagramDm";
+import na1 from "../assets/notanartist/na1.jpeg";
+import na2 from "../assets/notanartist/na2.jpeg";
+import na3 from "../assets/notanartist/na3.jpeg";
+import na4 from "../assets/notanartist/na4.jpeg";
+import na5 from "../assets/notanartist/na5.jpeg";
+import na6 from "../assets/notanartist/na6.jpeg";
+import na7 from "../assets/notanartist/na7.jpeg";
+import na8 from "../assets/notanartist/na8.jpeg";
+import na9 from "../assets/notanartist/na9.jpeg";
+import na10 from "../assets/notanartist/na10.jpeg";
+import na11 from "../assets/notanartist/na11.jpeg";
+import na12 from "../assets/notanartist/na12.jpeg";
+import na13 from "../assets/notanartist/na13.jpeg";
+import na14 from "../assets/notanartist/na14.jpeg";
+import na15 from "../assets/notanartist/na15.jpeg";
+import na16 from "../assets/notanartist/na16.jpeg";
+import na17 from "../assets/notanartist/na17.jpeg";
+import na18 from "../assets/notanartist/na18.jpeg";
+import na19 from "../assets/notanartist/na19.jpeg";
+import na20 from "../assets/notanartist/na20.jpeg";
+import na21 from "../assets/notanartist/na21.jpeg";
+import na22 from "../assets/notanartist/na22.jpeg";
+import na23 from "../assets/notanartist/na23.jpeg";
+import na24 from "../assets/notanartist/na24.jpeg";
+import nfs1 from "../assets/notforsale/nfs1.jpeg";
+import nfs2 from "../assets/notforsale/nfs2.jpeg";
+import nfs3 from "../assets/notforsale/nfs3.jpeg";
+import nfs4 from "../assets/notforsale/nfs4.jpeg";
+import nfs5 from "../assets/notforsale/nfs5.jpeg";
+import nfs6 from "../assets/notforsale/nfs6.jpeg";
+import nfs7 from "../assets/notforsale/nfs7.jpeg";
+import nfs8 from "../assets/notforsale/nfs8.jpeg";
+import nfs9 from "../assets/notforsale/nfs9.jpeg";
+import nfs10 from "../assets/notforsale/nfs10.jpeg";
 
-const formatNumber = (value) => String(value).padStart(3, "0");
+const notAnArtistProjects = [
+  { id: 1, image: na1, title: "001", category: "NOT AN ARTIST", price: "$75" },
+  { id: 2, image: na2, title: "002", category: "NOT AN ARTIST", price: "$75" },
+  { id: 3, image: na3, title: "003", category: "NOT AN ARTIST", price: "$75" },
+  { id: 4, image: na4, title: "004", category: "NOT AN ARTIST", price: "$75" },
+  { id: 5, image: na5, title: "005", category: "NOT AN ARTIST", price: "$75" },
+  { id: 6, image: na6, title: "006", category: "NOT AN ARTIST", price: "$75" },
+  { id: 7, image: na7, title: "007", category: "NOT AN ARTIST", price: "$100" },
+  { id: 8, image: na8, title: "008", category: "NOT AN ARTIST", price: "$75" },
+  { id: 9, image: na9, title: "009", category: "NOT AN ARTIST", price: "$100" },
+  { id: 10, image: na10, title: "010", category: "NOT AN ARTIST", price: "$75" },
+  { id: 11, image: na11, title: "011", category: "NOT AN ARTIST", price: "$100" },
+  { id: 12, image: na12, title: "012", category: "NOT AN ARTIST", price: "$100" },
+  { id: 13, image: na13, title: "013", category: "NOT AN ARTIST", price: "$100" },
+  { id: 14, image: na14, title: "014", category: "NOT AN ARTIST", price: "$75" },
+  { id: 15, image: na15, title: "015", category: "NOT AN ARTIST", price: "$100" },
+  { id: 16, image: na16, title: "016", category: "NOT AN ARTIST", price: "$75" },
+  { id: 17, image: na17, title: "017", category: "NOT AN ARTIST", price: "$75" },
+  { id: 18, image: na18, title: "018", category: "NOT AN ARTIST", price: "$85" },
+  { id: 19, image: na19, title: "019", category: "NOT AN ARTIST", price: "$120" },
+  { id: 20, image: na20, title: "020", category: "NOT AN ARTIST", price: "$75" },
+  { id: 21, image: na21, title: "021", category: "NOT AN ARTIST", price: "$100" },
+  { id: 22, image: na22, title: "022", category: "NOT AN ARTIST", price: "$100" },
+  { id: 23, image: na23, title: "023", category: "NOT AN ARTIST", price: "$75" },
+  { id: 24, image: na24, title: "024", category: "NOT AN ARTIST", price: "$75" },
+];
 
-const getNumericSuffix = (path) => {
-  const match = path.match(/(\d+)\.(?:jpe?g|JPE?G)$/);
-  return match ? Number(match[1]) : 0;
-};
+const notForSaleProjects = [
+  { id: 1, image: nfs1, title: "001", category: "NOT FOR SALE", price: "$1500" },
+  { id: 2, image: nfs2, title: "002", category: "NOT FOR SALE", price: "$1200" },
+  { id: 3, image: nfs3, title: "003", category: "NOT FOR SALE", price: "$800" },
+  { id: 4, image: nfs4, title: "004", category: "NOT FOR SALE", price: "$1000" },
+  { id: 5, image: nfs5, title: "005", category: "NOT FOR SALE", price: "$800" },
+  { id: 6, image: nfs6, title: "006", category: "NOT FOR SALE", price: "$1200" },
+  { id: 7, image: nfs7, title: "007", category: "NOT FOR SALE", price: "$800" },
+  { id: 8, image: nfs8, title: "008", category: "NOT FOR SALE", price: "$800" },
+  { id: 9, image: nfs9, title: "009", category: "NOT FOR SALE", price: "$800" },
+  { id: 10, image: nfs10, title: "010", category: "NOT FOR SALE", price: "$800" },
+];
 
-const sortByNumericSuffix = ([firstPath], [secondPath]) =>
-  getNumericSuffix(firstPath) - getNumericSuffix(secondPath);
-
-const notAnArtistImages = Object.entries(
-  import.meta.glob("../assets/notanartist/*.jpeg", {
-    eager: true,
-    import: "default",
-    query: "?url",
-  })
-)
-  .sort(sortByNumericSuffix)
-  .map(([, image], index) => ({
-    id: index + 1,
-    image,
-    title: formatNumber(index + 1),
-    category: "NOT AN ARTIST",
-  }));
-
-const notForSaleImages = Object.entries(
-  import.meta.glob("../assets/notforsale/*.jpeg", {
-    eager: true,
-    import: "default",
-    query: "?url",
-  })
-)
-  .sort(sortByNumericSuffix)
-  .map(([, image], index) => ({
-    id: index + 1,
-    image,
-    title: formatNumber(index + 1),
-    category: "NOT FOR SALE",
-  }));
-
-const allProjects = [...notAnArtistImages, ...notForSaleImages];
+const allProjects = [...notAnArtistProjects, ...notForSaleProjects];
 
 function BuyButton({ project }) {
   return (
@@ -98,9 +132,14 @@ function ParallaxProjectItem({ project, onOpenModal }) {
 
         <div className="mt-4 md:mt-6 space-y-2 md:space-y-3">
           <div className="flex flex-row items-center justify-between gap-3">
-            <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white tracking-wide">
-              {project.title}
-            </h2>
+            <div>
+              <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white tracking-wide">
+                {project.title}
+              </h2>
+              <p className="mt-1 text-[10px] sm:text-xs uppercase tracking-[0.2em] text-gray-400">
+                {project.price}
+              </p>
+            </div>
             <BuyButton project={project} />
           </div>
 
@@ -162,6 +201,9 @@ function ImageModal({ project, onClose }) {
           <h3 className="text-xl sm:text-2xl font-bold text-white">
             {project.title}
           </h3>
+          <p className="text-xs sm:text-sm uppercase tracking-[0.2em] text-neutral-400">
+            {project.price}
+          </p>
         </div>
       </motion.div>
     </motion.div>
@@ -283,7 +325,7 @@ export default function GalleryPage() {
           ) : (
             <div className="p-6 md:p-12">
               <h3 className="text-xl md:text-2xl uppercase tracking-[0.2em] mb-8 text-neutral-400">
-                All Pictures — {activeCategory}
+                All Pictures - {activeCategory}
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredProjects.map((project) => (
@@ -301,6 +343,9 @@ export default function GalleryPage() {
                       <h4 className="text-white font-bold text-base">
                         {project.title}
                       </h4>
+                      <p className="text-neutral-300 text-xs uppercase tracking-[0.2em] mt-1">
+                        {project.price}
+                      </p>
                     </div>
                   </div>
                 ))}

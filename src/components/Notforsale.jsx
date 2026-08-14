@@ -16,16 +16,19 @@ const projects = [
     image: not1,
     title: "001",
     category: "NOT FOR SALE",
+    price: "$1500",
   },
   {
     image: not2,
     title: "002",
     category: "NOT FOR SALE",
+    price: "$1200",
   },
   {
     image: not3,
     title: "003",
     category: "NOT FOR SALE",
+    price: "$800",
   },
 ];
 
@@ -78,9 +81,14 @@ function ParallaxProjectItem({ project, onOpenModal }) {
 
         <div className="mt-6 md:mt-8 space-y-3 md:space-y-4">
           <div className="flex flex-row items-center justify-between gap-3">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold theme-text tracking-wide">
-              {project.title}
-            </h2>
+            <div>
+              <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold theme-text tracking-wide">
+                {project.title}
+              </h2>
+              <p className="mt-1 text-xs sm:text-sm uppercase tracking-[0.2em] theme-muted">
+                {project.price}
+              </p>
+            </div>
             <BuyButton project={project} />
           </div>
 
@@ -143,6 +151,9 @@ function ImageModal({ project, onClose }) {
             <h3 className="text-xl sm:text-2xl font-bold image-panel-text">
               {project.title}
             </h3>
+            <p className="mt-1 text-xs sm:text-sm uppercase tracking-[0.2em] text-neutral-300">
+              {project.price}
+            </p>
           </div>
 
           <BuyButton project={project} />

@@ -13,6 +13,10 @@ export function buildInstagramDmText(project) {
     parts.push(`Piece: ${project.title}`);
   }
 
+  if (project?.price) {
+    parts.push(`Price: ${project.price}`);
+  }
+
   if (project?.category) {
     parts.push(`Category: ${project.category}`);
   }
