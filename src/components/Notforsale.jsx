@@ -16,13 +16,13 @@ const projects = [
     image: not1,
     title: "001",
     category: "NOT FOR SALE",
-    price: "$1500",
+    price: "$800",
   },
   {
     image: not2,
     title: "002",
     category: "NOT FOR SALE",
-    price: "$1200",
+    price: "$800",
   },
   {
     image: not3,
