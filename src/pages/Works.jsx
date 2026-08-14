@@ -5,8 +5,7 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
-
-const INSTAGRAM_URL = "https://ig.me/m/cashflowsteadysniping";
+import { openInstagramDm } from "../utils/instagramDm";
 
 const formatNumber = (value) => String(value).padStart(3, "0");
 
@@ -50,16 +49,15 @@ const notForSaleImages = Object.entries(
 
 const allProjects = [...notAnArtistImages, ...notForSaleImages];
 
-function BuyButton() {
+function BuyButton({ project }) {
   return (
-    <a
-      href={INSTAGRAM_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      type="button"
+      onClick={() => openInstagramDm(project)}
       className="inline-flex items-center justify-center px-5 py-2 md:px-6 md:py-2.5 rounded-full bg-white text-black font-semibold text-xs md:text-sm uppercase tracking-widest hover:bg-gray-200 active:bg-gray-300 transition-colors shadow-lg focus:outline-none"
     >
-      Buy Piece
-    </a>
+      i want this piece
+    </button>
   );
 }
 
@@ -103,7 +101,7 @@ function ParallaxProjectItem({ project, onOpenModal }) {
             <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-white tracking-wide">
               {project.title}
             </h2>
-            <BuyButton />
+            <BuyButton project={project} />
           </div>
 
           <p className="uppercase tracking-[0.2em] text-gray-400 underline text-xs">

@@ -6,6 +6,7 @@ import {
   useTransform,
   AnimatePresence,
 } from "framer-motion";
+import { openInstagramDm } from "../utils/instagramDm";
 import not1 from "../assets/notanartist/na1.jpeg";
 import not2 from "../assets/notanartist/na2.jpeg";
 import not3 from "../assets/notanartist/na3.jpeg";
@@ -13,8 +14,6 @@ import not4 from "../assets/notanartist/na4.jpeg";
 import not5 from "../assets/notanartist/na5.jpeg";
 import not6 from "../assets/notanartist/na6.jpeg";
 import not7 from "../assets/notanartist/na7.jpeg";
-
-const INSTAGRAM_URL = "https://ig.me/m/cashflowsteadysniping";
 
 const projects = [
   {
@@ -39,16 +38,15 @@ const projects = [
   },
 ];
 
-function BuyButton() {
+function BuyButton({ project }) {
   return (
-    <a
-      href={INSTAGRAM_URL}
-      target="_blank"
-      rel="noopener noreferrer"
+    <button
+      type="button"
+      onClick={() => openInstagramDm(project)}
       className="inline-flex items-center justify-center px-5 py-2 md:px-6 md:py-2.5 rounded-full bg-white text-black font-semibold text-xs md:text-sm uppercase tracking-widest hover:bg-gray-200 active:bg-gray-300 transition-colors shadow-lg focus:outline-none"
     >
-      Buy Piece
-    </a>
+      i want this piece
+    </button>
   );
 }
 
@@ -92,7 +90,7 @@ function ParallaxProjectItem({ project, onOpenModal }) {
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold theme-text tracking-wide">
               {project.title}
             </h2>
-            <BuyButton />
+            <BuyButton project={project} />
           </div>
 
           <p className="uppercase tracking-[0.25em] md:tracking-[0.35em] theme-muted underline text-xs md:text-sm">
@@ -156,7 +154,7 @@ function ImageModal({ project, onClose }) {
             </h3>
           </div>
 
-          <BuyButton />
+          <BuyButton project={project} />
         </div>
       </motion.div>
     </motion.div>
